@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.2.1 (452715)"/><meta name="keywords" content="python, Topic"/><meta name="author" content="Alan Chen"/><meta name="created" content="2015-12-17 17:06:18 +0000"/><meta name="source-url" content="http://blog.csdn.net/mr__fang/article/details/7176731"/><meta name="updated" content="2015-12-21 04:37:57 +0000"/><title>pyinstaller notes</title></head><body>
+<div style="text-align: center"><font face="微軟正黑體"><span style="font-size: 24px;"><b>Pyinstaller  打包套件經驗分享</b></span></font></div>
+<div><b><span style="font-size: 24px;"><span style="font-family: 微軟正黑體;"><br/></span></span></b></div>
+<div><span style="font-family: 微軟正黑體;"><b><span style="font-size: 24px;">系統環境：</span></b></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">Pyinstaller 版本：3.0</span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">作業系統：Windows 7 家用進階版</span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">Python 版本：2.7.11</span></span></div>
+<div style="margin-left:40px;"><br/></div>
+<div><span style="font-family: 微軟正黑體;"><b><span style="font-size: 24px;">下載與安裝Pyinstaller</span></b></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">開啟命令視窗輸入：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><i>&gt; </i> pip install pyinstaller</span></span></div>
+</div>
+</div>
+<div><span style="font-family: 微軟正黑體;"><b><span style="font-size: 24px;">打包程序</span></b></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><span style="font-size: 16px;"><b>一般打包：</b></span></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">若 <span style="color: rgb(121, 121, 121);">XXX</span>.py 使用的套件是pyinstaller內建好支援的話，應該可以直接用一般打包命令的方式完成打包作業。pyinstaller已支援的套件列表：<a href="https://github.com/pyinstaller/pyinstaller/wiki/Supported-Packages">https://github.com/pyinstaller/pyinstaller/wiki/Supported-Packages</a></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">在 <span style="color: rgb(121, 121, 121);">XXX</span>.py所在資料夾中開啟命令視窗輸入：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><i>&gt; </i> pyinstaller <span style="color: rgb(121, 121, 121);">XXX</span>.py</span></span></div>
+</div>
+</div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">或者加入其他option調整打包結果，其命令輸入如下：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">&gt; pyinstaller <i>option</i> <span style="color: rgb(121, 121, 121);">XXX</span>.py</span></span></div>
+</div>
+</div>
+<ul>
+<li style="display:inline;list-style:none;">
+<ul>
+<li style="display:inline;list-style:none;">
+<ul>
+<li><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><i>option</i> 中參數很多種類，可參考官方說明文件(<a href="http://pythonhosted.org/PyInstaller/">http://pythonhosted.org/PyInstaller/</a>)中 <i>Options</i>標題到 <i>Shortening the Command </i>標題之間的內容。</span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">打包程序完成後會產生dist和build兩個資料夾，我們要的執行檔在dist資料夾內，檔名和<span style="color: rgb(121, 121, 121);">XXX</span>.py一樣，即為<span style="color: rgb(121, 121, 121);">XXX</span>.exe。</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">Default打包結果是在dist資料夾內有<span style="color: rgb(121, 121, 121);">XXX</span>.exe以及執行檔所需的相關檔案(如py, pyd, dll等)。若option參數輸入 -F 或 —onefile，則dist資料夾內僅有<span style="color: rgb(121, 121, 121);">XXX</span>.exe。命令如下：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">&gt; pyinstaller -F <span style="color: rgb(121, 121, 121);">XXX</span>.py</span></span></div>
+</div>
+</div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><span style="font-size: 16px;"><b>特殊套件打包：</b></span></u></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">若<span style="color: rgb(121, 121, 121);">XXX</span>.py用到pyinstaller沒有支援的套件(如sklearn)，則需要修改spec檔讓pyinstaller抓取這些套件。方法如下：</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">先製作 <span style="color: rgb(121, 121, 121);">XXX</span>.spec：在 <span style="color: rgb(121, 121, 121);">XXX</span>.py所在資料夾中開啟命令視窗輸入：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><i>&gt; </i> pyi-makespec <span style="color: rgb(121, 121, 121);">XXX</span>.py</span></span></div>
+</div>
+</div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">用文字編輯器(Vim、sublime Text等)開啟 <span style="color: rgb(121, 121, 121);">XXX</span>.spec，在上方加入下列文字：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">from PyInstaller.utils.hooks.__init__ import collect_submodules</span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">hiddenimports = collect_submodules( <span style="color: rgb(121, 121, 121);"><i>modules A</i></span> ) + collect_submodules( <span style="color: rgb(121, 121, 121);"><i>modules B</i></span> ) + ...</span></span></div>
+</div>
+</div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><i><span style="color: rgb(121, 121, 121);">module A</span></i>、<i><span style="color: rgb(121, 121, 121);">module B</span></i></span><span style="font-size: 16px;">、</span><span style="font-size: 16px;">… 為<span style="color: rgb(121, 121, 121);">XXX</span>.py中被import的套件名稱。</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">以及在下方的a = Analysis( ... ) 中修改 hiddenimports=[] 為</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; text-align: start; text-indent: 0px; widows: 1; background-color: rgb(255, 255, 255);">
+<div style="font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-transform: none; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">a = Analysis( …,</span></span></div>
+<div style="font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-transform: none; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">                     hiddenimports=hiddenimports,</span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">                  …,</span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">                  …)</span></span></div>
+</div>
+</div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">儲存此spec檔。然後在 <span style="color: rgb(121, 121, 121);">XXX</span>.spec所在資料夾中開啟命令視窗輸入：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">pyinstaller <span style="color: rgb(121, 121, 121);">XXX</span>.spec</span></span></div>
+</div>
+</div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">打包完成後，在dist資料夾中產生<span style="color: rgb(121, 121, 121);">XXX</span>.exe以及執行檔所需的相關檔案。-F參數似乎不適用。</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><b><span style="font-size: 16px;">額外檔案打包：</span></b></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">打包特別檔案，如txt, img, mp3等，修改a = Analysis( ... ) 中的datas。詳細資料請參考官方說明說件中的Adding Data Files欄位：<a href="http://pythonhosted.org/PyInstaller/#using-spec-files">http://pythonhosted.org/PyInstaller/#using-spec-files</a></span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div><span style="font-family: 微軟正黑體;"><b><span style="font-size: 24px;">其他可能問題的解決方法</span></b></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><b><span style="font-size: 16px;">Importerror no module named XXX</span></b></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">若遇到這問題，就只好去搜尋該模組(ex: aaa.py)，然後複製該模組至dist資料夾，並依dist資料夾內其他的模組命名規則，修改模組檔名。</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">Ex: 在scipy套件資料夾中的special資料夾內的 </span><span style="font-size: 16px;">_</span><span style="font-size: 16px;">ufuncs.pyd，被複製到dist資料夾後，檔名就改為 scipy.special._ufuncs.pyd</span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><span style="font-size: 16px;"><b>中文編碼問題</b></span></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">需要將中文字串的型態從str改為 unicode，中文範例如下：</span></span></div>
+<div style="margin-left:80px;">
+<div style="overflow-x: auto; overflow-y: hidden; padding: 10px; border: 1px solid rgb(198, 201, 203); margin: 1.5em 0px; box-shadow: rgb(216, 216, 216) 1px 1px 1px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">&gt; w = '歡迎'</span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">&gt; uw = w.decode(‘utf8’)</span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">&gt; print “Hello World! %s!” %uw</span></span></div>
+</div>
+</div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><b><span style="font-size: 16px;">中文路徑問題</span></b></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">可參考此網頁(<a href="http://www.xlgps.com/article/361410.html">http://www.xlgps.com/article/361410.html</a>)的其他問題紀錄的第四點</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div><span style="font-family: 微軟正黑體;"><b><span style="font-size: 24px;">其他</span></b></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><b><span style="font-size: 16px;">我遇到的問題</span></b></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><font size="4">我當初是要把做好的中文文件分類程式給朋友去demo，我用到jieba和sklearn套件。在獨立執行檔的過程中，</font><font size="4">jieba和sklearn套件下的模組都抓不到，在運行</font><font size="4">執行檔時會跑出 <b>I</b></font><span style="font-size: 16px;"><b>mporterror no module named XXX</b>。我初期的解決方式是每出現一個Import Error，就去找該Error提到的模組，並複製到dist資料夾，雖然能解決問題，但時間冗長。</span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><u><b><span style="font-size: 16px;">給非</span><span style="font-size: 16px;">Pyinstaller 3.0的使用者建議</span></b></u></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">上述的處理方式可能會因Pyinstaller不同而異！</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">例如套件抓取方式可能不同。collect_submodules函式可能非在PyInstaller.utils.hooks.__init__.py模組。</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">我在查詢</span><span style="font-size: 16px;">collect_submodules函式使用方式時，在Stack Overflow與其他網站看，看到兩三種import方式引進</span><span style="font-size: 16px;">collect_submodules，但</span><span style="font-size: 16px;">似乎</span><span style="font-size: 16px;">因為我用的版本不同與這些文章作者用的不同，所以他們的使用方式無法解決我的問題。</span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:80px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">因此，</span><span style="font-size: 16px;">PyInstaller內的</span><span style="font-size: 16px;">函式與模組，可能會因版本而變。</span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div><span style="font-family: 微軟正黑體;"><span style="font-size: 24px;"><b>參考資料</b></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;"><br/></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">官方網站：<a href="http://www.pyinstaller.org/">http://www.pyinstaller.org/</a></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">官方說明文件：<a href="http://pythonhosted.org/PyInstaller/">http://pythonhosted.org/PyInstaller/</a></span></span></div>
+<div style="margin-left:40px;"><span style="font-family: 微軟正黑體;"><span style="font-size: 16px;">其它說明參考：<a href="http://www.xlgps.com/article/361410.html">http://www.xlgps.com/article/361410.html</a></span></span></div>
+<div><span style="font-size: 16px;"><span style="font-family: 微軟正黑體;"><br/></span></span></div>
+</body></html>
